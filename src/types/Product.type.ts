@@ -7,5 +7,9 @@ export type Product = {
   originalPrice: string;
   deliveryType: string;
   brandId: string;
-  brand: {};
+  brand: {
+    id: string;
+    nameKr: string;
+    nameEn: string;
+  };
 };

@@ -1,7 +1,7 @@
 import React from "react";
 
 function Page({ children }: { children: React.ReactNode }) {
-  return <main className="box-border">{children}</main>;
+  return <main className="box-border px-8 pt-12">{children}</main>;
 }
 
 export default Page;

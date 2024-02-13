@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <Page>
-      <section className="px-8 pt-28">
+      <section>
         <h2 className="text-center text-3xl font-bold py-12">Trending</h2>
         <ProductsList />
       </section>
