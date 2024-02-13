@@ -1,11 +1,12 @@
 "use client";
 
+import API from "@/api/index.api";
 import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
 
 type AuthContextValue = {
   isLoggedIn: boolean;
-  logIn: () => void;
+  logIn: (accessToken: string) => void;
   logOut: () => void;
 };
 
@@ -23,12 +24,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const router = useRouter();
 
-  const logIn = () => {
+  const logIn = (accessToken: string) => {
     setIsLoggedIn(true);
+    API.setAccessToken(accessToken);
   };
 
   const logOut = () => {
     setIsLoggedIn(false);
+    API.removeAccessToken();
   };
 
   useEffect(() => {
