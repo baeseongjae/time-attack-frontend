@@ -20,12 +20,15 @@ function SignUpPage() {
     if (password !== rePassword)
       return alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
 
-    const { accessToken } = await mutateAsync({
+    const response = await mutateAsync({
       email: email,
       password: password,
     });
-    logIn(accessToken);
-    alert("회원가입 성공하셨습니다.");
+
+    if (response.data.success) {
+      alert("회원가입 성공하셨습니다.");
+      logIn();
+    }
   };
 
   return (

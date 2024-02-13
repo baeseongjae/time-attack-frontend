@@ -6,7 +6,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 type AuthContextValue = {
   isLoggedIn: boolean;
-  logIn: (accessToken: string) => void;
+  logIn: () => void;
   logOut: () => void;
 };
 
@@ -24,9 +24,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const router = useRouter();
 
-  const logIn = (accessToken: string) => {
+  const logIn = () => {
     setIsLoggedIn(true);
-    API.setAccessToken(accessToken);
+    // API.setAccessToken(accessToken);
   };
 
   const logOut = () => {

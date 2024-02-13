@@ -1,17 +1,13 @@
-"use client";
-
-import { useAppSelector } from "@/redux/store";
 import React from "react";
 import Header from "./_components/Header";
+import ModalComponent from "./_components/ModalComponent";
 
 function RootLayout({ children }: { children: React.ReactNode }) {
-  const modal = useAppSelector((state) => state.utils.modal);
-
   return (
     <>
       <Header />
       {children}
-      {modal}
+      <ModalComponent />
     </>
   );
 }

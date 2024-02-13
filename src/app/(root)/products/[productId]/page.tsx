@@ -1,8 +1,12 @@
 "use client";
 
 import API from "@/api/index.api";
+import LogInModal from "@/components/LogInModal";
 import Page from "@/components/Page";
 import Price from "@/components/Price";
+import { useAuth } from "@/contexts/auth.context";
+import { setModal } from "@/redux/slices/utils.slice";
+import { useAppDispatch } from "@/redux/store";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 
@@ -12,6 +16,15 @@ function ProductDetailPage(props: { params: { productId: string } }) {
     queryKey: ["products", { isList: false, id: productId }],
     queryFn: () => API.products.getProduct(productId),
   });
+  const { isLoggedIn } = useAuth();
+  const dispatch = useAppDispatch();
+
+  const handleClickCartButton = () => {
+    if (!isLoggedIn) {
+      const action = setModal(<LogInModal />);
+      dispatch(action);
+    }
+  };
 
   return (
     <Page>
@@ -67,7 +80,10 @@ function ProductDetailPage(props: { params: { productId: string } }) {
                 </dl>
               </li>
             </ul>
-            <button className="border border-black font-semibold h-12 transition hover:-translate-y-1 active:translate-y-0">
+            <button
+              onClick={handleClickCartButton}
+              className="border border-black bg-black text-white font-semibold h-12 transition hover:-translate-y-1 active:translate-y-0"
+            >
               장바구니 담기
             </button>
           </div>

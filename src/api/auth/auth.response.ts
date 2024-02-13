@@ -1,7 +1,7 @@
 export type LogInData = {
-  accessToken: string;
+  success: boolean;
 };
 
 export type SignUpData = {
-  accessToken: string;
+  success: boolean;
 };

@@ -18,15 +18,17 @@ function LogInModal() {
       return alert("이메일과 비밀번호를 모두 입력해주세요");
 
     try {
-      const { accessToken } = await mutateAsync({
+      const response = await mutateAsync({
         email: email,
         password: password,
       });
-      logIn(accessToken);
 
-      const action = setModal(null);
-      dispatch(action);
-      alert("로그인 성공");
+      if (response.data.success) {
+        logIn();
+        alert("로그인 성공");
+        const action = setModal(null);
+        dispatch(action);
+      }
     } catch (error) {
       alert("아이디 또는 비밀번호가 잘못되었습니다. 다시 확인해주세요.");
     }

@@ -11,9 +11,7 @@ class AuthAPI {
 
   logIn = async (dto: LogInDto) => {
     const response = await this.coreClient.post<LogInData>("/auth/log-in", dto);
-    console.log(response); //응답 한번 살펴보기
-
-    return response.data;
+    return response;
   };
 
   signUp = async (dto: SignUpDto) => {
@@ -22,8 +20,13 @@ class AuthAPI {
       dto
     );
 
-    console.log(response);
-    return response.data;
+    return response;
+  };
+
+  logOut = async () => {
+    const response = await this.coreClient.delete("/auth/log-out");
+
+    return response;
   };
 
   refreshToken = async () => {

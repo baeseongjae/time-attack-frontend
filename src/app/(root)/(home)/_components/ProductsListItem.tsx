@@ -26,7 +26,7 @@ function ProductsListItem({ product }: ProductListItemProps) {
         width={300}
         height={300}
       />
-      <h6>{product.brand.nameEn}</h6>
+      <h6 className="font-semibold">{product.brand.nameEn}</h6>
       <p>{product.name}</p>
       <div>
         <Price amount={product.originalPrice} isOriginal={true} />
