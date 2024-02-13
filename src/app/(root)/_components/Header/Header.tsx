@@ -1,3 +1,5 @@
+"use client";
+
 import HeaderLogo from "./components/HeaderLogo";
 import HeaderNav from "./components/HeaderNav";
 import HeaderSign from "./components/HeaderSign";
