@@ -5,7 +5,7 @@ function HeaderNav() {
     <nav className="ml-20">
       <ul>
         <li>
-          <Link href="/">BRANDS</Link>
+          <Link href="/brands">BRANDS</Link>
         </li>
       </ul>
     </nav>

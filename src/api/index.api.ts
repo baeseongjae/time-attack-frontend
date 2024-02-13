@@ -1,5 +1,6 @@
 import axios from "axios";
 import AuthAPI from "./auth/auth.api";
+import BrandsAPI from "./brands/brands.api";
 import ProductsAPI from "./products/products.api";
 
 const coreClient = axios.create({
@@ -9,6 +10,7 @@ const coreClient = axios.create({
 class API {
   static auth = new AuthAPI(coreClient);
   static products = new ProductsAPI(coreClient);
+  static brands = new BrandsAPI(coreClient);
 
   static setAccessToken(accessToken: string) {
     coreClient.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
