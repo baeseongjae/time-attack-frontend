@@ -1,5 +1,5 @@
 import Page from "@/components/Page";
-import CartButton from "./_components/cartButton";
+import CartButton from "./_components/CartButton";
 
 function CartPage() {
   return (

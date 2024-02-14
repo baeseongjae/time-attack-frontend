@@ -1,4 +1,3 @@
-import { Product } from "@/types/Product.type";
 import { AxiosInstance } from "axios";
 
 class ProductsAPI {
@@ -10,12 +9,12 @@ class ProductsAPI {
 
   getProducts = async () => {
     const response = await this.coreClient.get("/products");
-    return response.data as Product[];
+    return response.data;
   };
 
   getProduct = async (productId: string) => {
     const response = await this.coreClient.get(`/products/${productId}`);
-    return response.data as Product;
+    return response.data;
   };
 }
 

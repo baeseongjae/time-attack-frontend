@@ -1,4 +1,3 @@
-import { Brand } from "@/types/Brand.type";
 import { AxiosInstance } from "axios";
 
 class BrandsAPI {
@@ -11,12 +10,12 @@ class BrandsAPI {
   getBrands = async () => {
     const response = await this.coreClient.get("/brands");
     console.log(response.data);
-    return response.data as Brand[];
+    return response.data;
   };
 
   getProduct = async (brandId: string) => {
     const response = await this.coreClient.get(`/brands/${brandId}`);
-    return response.data as Brand;
+    return response.data;
   };
 }
 

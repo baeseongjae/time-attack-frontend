@@ -5,7 +5,6 @@ import Link from "next/link";
 interface ProductListItemProps {
   product: {
     id: string;
-    title: string;
     imgSrc: string;
     name: string;
     price: string;

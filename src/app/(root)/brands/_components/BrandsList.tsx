@@ -19,11 +19,12 @@ function BrandsList() {
         <>
           <div className="text-center text-sm py-10">ALL</div>
           <ul className="text-sm px-12 grid grid-cols-6 gap-x-3 gap-y-6 ml-12">
-            {brands.result.map((brand: Brand) => (
-              <li key={brand.id}>
-                <Link href={`/brands/${brand.id}`}>{brand.nameKr}</Link>
-              </li>
-            ))}
+            {brands &&
+              brands.result.map((brand: Brand) => (
+                <li key={brand.id}>
+                  <Link href={`/brands/${brand.id}`}>{brand.nameKr}</Link>
+                </li>
+              ))}
           </ul>
         </>
       )}
